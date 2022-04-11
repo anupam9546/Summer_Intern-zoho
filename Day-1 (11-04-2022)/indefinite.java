@@ -20,7 +20,7 @@ public class ar {
 			break;
 	}
 	String[] s= str.split(" ");
-	System.out.print("\nInteger array : [");
+	System.out.print("\nArray is : [");
     for (int i = 0; i < s.length; i++) {
         System.out.print(s[i] + " ");
     }
@@ -28,5 +28,4 @@ public class ar {
 	System.out.println("\nThe Size of the array is :"+s.length);
 	}
 }
-
 
