@@ -6,7 +6,10 @@ public class Learn_collections {
 	
 	public static void main(String args[])
 	{
-		System.out.print("Which collection you wanna try :\n0. Stack \n1.ArrayList \n2.LinkedList \n3.List Interface \n4.HashSet \n5.LinkedHashSet \n6.TreeSet \n7.PriorityQueue \n8.Map Interface \n9.HashMap \n10.LinkedHashMap \n11.TreeMap \n12.Hashtable \n13.Sorting \n14.Comparable interface \n15.Comparator interface \n16.Properties class \n \n Enter Your input: ");
+		System.out.print("Which collection you wanna try :\n0. Stack \n1.ArrayList \n.2.Arrays \n3.LinkedList "
+				+ "\n4.List Interface \n5.HashSet \n6.LinkedHashSet \n7.TreeSet \n8.PriorityQueue"
+				+ " \n9.HashMap  \n10.TreeMap \n11.Hashtable \n12.Sorting \n13.Comparable interface "
+				+ "\n14.Comparator interface \n15.Basic_collection_operations \n \n Enter Your input: ");
 		Scanner sc = new Scanner(System.in);
 		int val=sc.nextInt();
 		switch (val)
@@ -17,59 +20,99 @@ public class Learn_collections {
 		case 1:
 			Array_List();
 			break;
-			
 		case 2:
-			Linked_List();
+			Arrays();
 			break;
 		case 3:
-			List_interface();
+			Linked_List();
 			break;
 		case 4:
-			HashSet_class();
+			List_interface();
 			break;
 		case 5:
-			LinkedHashSet_class();
+			HashSet_class();
 			break;
 		case 6:
-			TreeSet_class();
+			LinkedHashSet_class();
 			break;
 		case 7:
-			PriorityQueue_class();
+			TreeSet_class();
 			break;
 		case 8:
-			Map_interface();
+			PriorityQueue_class();
 			break;
+		
 		case 9:
 			HashMap_class();
 			break;
 		case 10:
-			LinkedHashMap_class();
-			break;
-		case 11:
 			TreeMap_class();
 			break;
-		case 12:
+		case 11:
 			Hashtable_class();
 			break;
-		case 13:
+		case 12:
 			Sorting();
 			break;
-		case 14:
+		case 13:
 			Comparable_interface();
 			break;
-		case 15:
+		case 14:
 			Comparator_interface();
 			break;
-		case 16:
-			Properties_class();
-			break;
+		case 15:
+			Basic_collection_operations();
+			
 		}
 	
 	
 	}
 
+	private static void Basic_collection_operations() {
+		// TODO Auto-generated method stub
+		System.out.println("\n-----Basic_collection_operations-----\n");
+		List<Integer> list=new ArrayList<>();
+		System.out.println("Adding elements");
+		list.add(30);
+		list.add(9);
+		list.add(20);
+		list.add(23);
+		list.add(53);
+		list.add(9);
+		
+		System.out.println("The minimum value in a araylist : "+Collections.min(list));
+		System.out.println("The maximum value in a araylist : "+Collections.max(list));
+		System.out.println("The Frequency of a value in a araylist : "+Collections.frequency(list,9));
+		System.out.println("The minimum value in a araylist : "+Collections.min(list));
+		Collections.sort(list);
+		System.out.println("Sorting :"+list);
+		
+		
+	}
+
+	private static void Arrays() {
+		// TODO Auto-generated method stub
+		System.out.println("\n-----Arrays-----\n");
+		int[] nums = {1,2,3,4,5,6,7,8};
+		System.out.println("1st Array: "+Arrays.toString(nums));
+		int index =  Arrays.binarySearch(nums, 4);//checking if the value is present
+		System.out.println("The index of the element 4 in the array is "+ index);
+		//to sort(using quick slot)
+		Integer[] numbs = {10,2,35,1,3,6,22,6,7,42};
+		//printing before sorting
+		System.out.println("Array before sorting : "+Arrays.toString(numbs));
+		
+		Arrays.sort(numbs);
+		//iterating after sorting
+		for (int i : numbs)
+		{
+			System.out.println(i+" ");
+		}		
+	}
+
 	private static void Stack_c() {
 		// TODO Auto-generated method stub
+		System.out.println("\n-----Stack_c-----\n");
 		Stack<String> animals = new Stack<>();
 		animals.push("Lions");
 		animals.push("dog");
@@ -88,11 +131,6 @@ public class Learn_collections {
 		 * add, offer, element , peek , remove
 		 * , poll
 		 */
-	}
-
-	private static void Properties_class() {
-		System.out.println("\n----------Properties Class-------");
-		
 	}
 
 	private static void Comparator_interface() {
@@ -118,22 +156,73 @@ public class Learn_collections {
 	private static void TreeMap_class() {
 		// TODO Auto-generated method stub
 		
-	}
-
-	private static void LinkedHashMap_class() {
-		// TODO Auto-generated method stub
-		System.out.println("\n-----LinkedHashMap_class-----\n");
+		System.out.println("\n-----TreeMap_class-----\n");
+		
+		Map<String , Integer> numbers =  new TreeMap<String,Integer>();
+		numbers.put("One", 1);
+		numbers.put("Two", 2);
+		numbers.put("Three", 3);
+		//If we put again the map will get override and the values will get updated
+		if (!numbers.containsKey("Two"))
+		{
+			numbers.put("Two", 23);//to check and append value
+		}
+		numbers.putIfAbsent("Absent", 12);//to check if key value is absent in the map 
+		
+		// for iteration
+		
+		for(Map.Entry<String, Integer> e:numbers.entrySet())
+		{
+			System.out.println(e);
+			//just iterating key
+			System.out.println(e.getKey());
+			//to just iterate value
+			System.out.println(e.getValue());	
+		}
+		
 	}
 
 	private static void HashMap_class() {
 		// TODO Auto-generated method stub
 		System.out.println("\n-----HashMap_class-----\n");
+		
+		Map<String , Integer> numbers =  new HashMap<String,Integer>();
+		numbers.put("One", 1);
+		numbers.put("Two", 2);
+		numbers.put("Three", 3);
+		//If we put again the map will get override and the values will get updated
+		if (!numbers.containsKey("Two"))
+		{
+			numbers.put("Two", 23);//to check and append value
+		}
+		numbers.putIfAbsent("Absent", 12);//to check if key value is absent in the map 
+		
+		// for iteration
+		
+		for(Map.Entry<String, Integer> e:numbers.entrySet())
+		{
+			System.out.println(e);
+			//just iterating key
+			System.out.println(e.getKey());
+			//to just iterate value
+			System.out.println(e.getValue());	
+		}
+		
+		for (Integer values : numbers.values())//iteration using values()
+		{
+			System.out.println(values);
+		}
+		//to check if value is present
+		numbers.containsKey(12);
+		numbers.containsValue("Two")
+		
+		
+		
+		
+		
+		
 	}
 
-	private static void Map_interface() {
-		// TODO Auto-generated method stub
-		System.out.println("\n-----Map_interface-----\n");
-	}
 
 	private static void PriorityQueue_class() {
 		// TODO Auto-generated method stub
